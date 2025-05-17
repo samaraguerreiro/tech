@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PowerStay - Previsão de Cancelamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4a90e2;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .resultado {
+      margin-top: 30px;
+      background: #e8f5e9;
+      padding: 15px;
+      border-left: 5px solid #2e7d32;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PowerStay</h1>
+  <p>IA para prever cancelamentos na Academia Força Local</p>
+</header>
+
+<main>
+  <h2>Simulador de Cancelamento</h2>
+  <p>Preencha os dados do aluno para ver a probabilidade de cancelamento.</p>
+
+  <form id="formulario">
+    <label>Idade:</label>
+    <input type="number" id="idade" required>
+
+    <label>Frequência semanal (dias):</label>
+    <input type="number" id="frequencia" required>
+
+    <label>Tempo de matrícula (meses):</label>
+    <input type="number" id="tempo" required>
+
+    <label>Gênero:</label>
+    <select id="genero">
+      <option value="feminino">Feminino</option>
+      <option value="masculino">Masculino</option>
+    </select>
+
+    <label>Estação atual:</label>
+    <select id="estacao">
+      <option value="verao">Verão</option>
+      <option value="outono">Outono</option>
+      <option value="inverno">Inverno</option>
+      <option value="primavera">Primavera</option>
+    </select>
+
+    <button type="button" onclick="prever()">Prever Cancelamento</button>
+  </form>
+
+  <div class="resultado" id="resultado">
+    <h3>Resultado da Previsão</h3>
+    <p id="mensagem"></p>
+  </div>
+</main>
+
+<script>
+  function prever() {
+    const idade = parseInt(document.getElementById("idade").value);
+    const frequencia = parseInt(document.getElementById("frequencia").value);
+    const tempo = parseInt(document.getElementById("tempo").value);
+    const estacao = document.getElementById("estacao").value;
+
+    let risco = 0;
+
+    if (frequencia <= 1) risco += 30;
+    if (tempo < 3) risco += 20;
+    if (estacao === "inverno") risco += 25;
+    if (idade < 25 || idade > 45) risco += 10;
+
+    let mensagem = "";
+    if (risco >= 60) {
+      mensagem = "⚠️ Alta chance de cancelamento. Reforce o contato e ofereça incentivo.";
+    } else if (risco >= 30) {
+      mensagem = "⚠️ Risco médio de cancelamento. Avalie estratégias de retenção.";
+    } else {
+      mensagem = "✅ Baixo risco de cancelamento. Continue o bom trabalho!";
+    }
+
+    document.getElementById("mensagem").innerText = mensagem;
+    document.getElementById("resultado").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
