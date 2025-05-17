@@ -2,128 +2,66 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>PowerStay - Previsão de Cancelamento</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerStay - IA na Academia</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6f0;
       margin: 0;
-      background: #f0f4f8;
+      padding: 0;
+      color: #4d004d;
     }
     header {
-      background: #4a90e2;
-      color: white;
-      text-align: center;
+      background-color: #ff66b2;
       padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
     main {
-      max-width: 800px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
     }
     h2 {
-      color: #4a90e2;
+      color: #cc3399;
     }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #4a90e2;
-      color: white;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .resultado {
-      margin-top: 30px;
-      background: #e8f5e9;
+    footer {
+      text-align: center;
       padding: 15px;
-      border-left: 5px solid #2e7d32;
-      display: none;
+      background-color: #ff66b2;
+      color: white;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
+  <header>
+    PowerStay 💪💗
+  </header>
+  <main>
+    <h2>Sobre o Projeto</h2>
+    <p>PowerStay é uma solução de Inteligência Artificial criada para ajudar a Academia Força Local, em Wenceslau Braz/PR, a prever quais clientes estão prestes a cancelar seus planos.</p>
 
-<header>
-  <h1>PowerStay</h1>
-  <p>IA para prever cancelamentos na Academia Força Local</p>
-</header>
+    <h2>Desafio</h2>
+    <p>Nos últimos 3 meses, a academia teve 35% de evasão. A gestora Daiane percebeu que os cancelamentos aconteciam sem aviso, e isso dificultava a retenção dos alunos.</p>
 
-<main>
-  <h2>Simulador de Cancelamento</h2>
-  <p>Preencha os dados do aluno para ver a probabilidade de cancelamento.</p>
+    <h2>Como Funciona</h2>
+    <p>Com base em dados de frequência, idade, gênero e outros padrões, o sistema prevê quais alunos estão propensos a desistir. Assim, a academia pode agir antes, oferecendo incentivos ou apoio personalizado.</p>
 
-  <form id="formulario">
-    <label>Idade:</label>
-    <input type="number" id="idade" required>
+    <h2>Público-Alvo</h2>
+    <p>Mulheres entre 25 e 45 anos, que frequentam a academia e desejam manter uma rotina saudável e constante.</p>
 
-    <label>Frequência semanal (dias):</label>
-    <input type="number" id="frequencia" required>
-
-    <label>Tempo de matrícula (meses):</label>
-    <input type="number" id="tempo" required>
-
-    <label>Gênero:</label>
-    <select id="genero">
-      <option value="feminino">Feminino</option>
-      <option value="masculino">Masculino</option>
-    </select>
-
-    <label>Estação atual:</label>
-    <select id="estacao">
-      <option value="verao">Verão</option>
-      <option value="outono">Outono</option>
-      <option value="inverno">Inverno</option>
-      <option value="primavera">Primavera</option>
-    </select>
-
-    <button type="button" onclick="prever()">Prever Cancelamento</button>
-  </form>
-
-  <div class="resultado" id="resultado">
-    <h3>Resultado da Previsão</h3>
-    <p id="mensagem"></p>
-  </div>
-</main>
-
-<script>
-  function prever() {
-    const idade = parseInt(document.getElementById("idade").value);
-    const frequencia = parseInt(document.getElementById("frequencia").value);
-    const tempo = parseInt(document.getElementById("tempo").value);
-    const estacao = document.getElementById("estacao").value;
-
-    let risco = 0;
-
-    if (frequencia <= 1) risco += 30;
-    if (tempo < 3) risco += 20;
-    if (estacao === "inverno") risco += 25;
-    if (idade < 25 || idade > 45) risco += 10;
-
-    let mensagem = "";
-    if (risco >= 60) {
-      mensagem = "⚠️ Alta chance de cancelamento. Reforce o contato e ofereça incentivo.";
-    } else if (risco >= 30) {
-      mensagem = "⚠️ Risco médio de cancelamento. Avalie estratégias de retenção.";
-    } else {
-      mensagem = "✅ Baixo risco de cancelamento. Continue o bom trabalho!";
-    }
-
-    document.getElementById("mensagem").innerText = mensagem;
-    document.getElementById("resultado").style.display = "block";
-  }
-</script>
-
+    <h2>Parceiras</h2>
+    <p>Maria Luiza, Samara, Juliana e Camili 💕</p>
+  </main>
+  <footer>
+    &copy; 2025 PowerStay - Todas as meninas no controle 🌸
+  </footer>
 </body>
 </html>
