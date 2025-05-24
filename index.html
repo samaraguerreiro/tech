@@ -154,7 +154,7 @@
 
     let risco = 0;
 
-    if (frequencia <= 1) risco += 30;
+    if (frequencia <= 3) risco += 30;
     if (tempo < 3) risco += 20;
     if (estacao === "inverno") risco += 25;
     if (idade < 25 || idade > 45) risco += 10;
